@@ -4,20 +4,23 @@ import "./Canvas.scss";
 
 const Canvas = () => {
   const canvasRef = useRef(null);
-  // const [canvasTag, setCanvasTag] = useState([]);
+
   useEffect(() => {
     const canvas = canvasRef.current;
-    canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight;
+    const clientW = document.body.clientWidth;
+    const clientH = document.body.clientHeight;
+    console.log(clientW, clientH);
+    canvas.width = clientW;
+    canvas.height = clientH;
     const ctx = canvas.getContext("2d");
     const img = new Image();
     img.src = nameImg;
     img.onload = () => {
       //drawImage(이미지객체, 사각형 왼위 x, 사각형 왼위 y, 가로크기, 세로크기)
-      ctx.drawImage(img, 0, 0, 500, 500);
-      const imgData = ctx.getImageData(0, 0, 500, 500);
-      const dots = getDotPos(imgData);
-      ctx.clearRect(0, 0, 500, 500);
+      ctx.drawImage(img, 0, 0, clientW, clientH);
+      const imgData = ctx.getImageData(0, 0, clientW, clientH);
+      const dots = getDotPos(imgData, clientW, clientH);
+      ctx.clearRect(0, 0, clientW, clientH);
       dots.map((dot) => {
         ctx.beginPath();
         ctx.fillStyle = "#ffff00";
@@ -25,15 +28,14 @@ const Canvas = () => {
         ctx.fill();
         ctx.closePath();
       });
-      // ctx.putImageData(imgData, 0, 0);
     };
   }, []);
 
-  const getDotPos = (imageData) => {
+  const getDotPos = (imageData, W, H) => {
     const particles = [];
-    for (let h = 0; h < 500; h += 4) {
-      for (let w = 0; w < 500; w += 4) {
-        const idx = (h * 500 + w) * 4;
+    for (let h = 0; h < H; h += 4) {
+      for (let w = 0; w < W; w += 4) {
+        const idx = (h * W + w) * 4;
         const r = imageData.data[idx];
         const g = imageData.data[idx + 1];
         const b = imageData.data[idx + 2];
