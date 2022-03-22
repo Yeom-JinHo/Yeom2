@@ -1,0 +1,17 @@
+.sideScroll {
+  background-color: black;
+  opacity: 0.5;
+  &__progress {
+    width: 100%;
+    background-color: blue;
+  }
+  &__rocket-img {
+    position: absolute;
+
+    right: 3vw;
+
+    width: 2vw;
+
+    transform: scaleY(-1);
+  }
+}
