@@ -1,5 +1,7 @@
 import "./App.scss";
-import "./reset.css";
+import "../src/assets/styles/reset.css";
+import "../src/assets/styles/font.css";
+import "../src/assets/styles/_variables.scss";
 import Canvas from "./Pages/Canvas.jsx";
 import Profile from "./Pages/Profile";
 import Skills from "./Pages/Skills";

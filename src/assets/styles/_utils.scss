@@ -1,0 +1,26 @@
+$vw-viewport: 1920;
+$vh-viewport: 1080;
+
+@function vw($size) {
+  $vw-context: $vw-viewport * 0.01 * 1px;
+  @return calc($size / $vw-context * 1vw);
+  @return $size;
+}
+
+@function vh($size) {
+  $vh-context: $vh-viewport * 0.01 * 1px;
+  @return calc($size / $vh-context * 1vh);
+  @return $size;
+}
+
+@function vw-t($size) {
+  $vw-context: $TABLET_CRITERIA * 0.01;
+  @return calc($size / $vw-context * 1vw);
+  @return $size;
+}
+
+@function vw-p($size) {
+  $vw-context: $PHONE_CRITERIA * 0.01;
+  @return calc($size / $vw-context * 1vw);
+  @return $size;
+}
