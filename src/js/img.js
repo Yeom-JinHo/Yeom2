@@ -1,5 +1,5 @@
 import testImg from "../img/test.svg";
-
+import jinhoImg from "../img/jinho.svg";
 export default class Img {
   constructor(ctx, stageWidth, stageHeight) {
     this.ctx = ctx;
@@ -7,7 +7,8 @@ export default class Img {
     this.stageHeight = stageHeight;
 
     this.image = new Image();
-    this.image.src = testImg;
+    // this.image.src = testImg;
+    this.image.src = jinhoImg;
     this.imageWidth = this.stageWidth / 1.5;
     this.imageHeight = this.stageHeight / 1.5;
     this.imagePosX = Math.floor((stageWidth - this.imageWidth) / 2);

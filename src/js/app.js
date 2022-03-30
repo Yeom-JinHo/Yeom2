@@ -10,7 +10,6 @@ export default class App {
 
     this.stageWidth = document.body.clientWidth;
     this.stageHeight = document.body.clientHeight;
-    console.log(this.stageWidth, this.stageHeight, document.body.scrollHeight);
     this.canvas.width = this.stageWidth;
     this.canvas.height = this.stageHeight;
 
@@ -19,9 +18,7 @@ export default class App {
     window.addEventListener("resize", this.resize.bind(this));
 
     const img = new Img(this.ctx, this.stageWidth, this.stageHeight);
-    console.log("make img");
     img.image.onload = () => {
-      console.log("img Load");
       const pixeles = img.getDotPos();
       this.resize();
 

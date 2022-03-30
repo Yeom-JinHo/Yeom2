@@ -13,7 +13,7 @@ const SideScroll = () => {
           ((document.body.scrollHeight / 3) * 4 - window.innerHeight)) *
           100
       );
-      progressBar.current.style.height = per + "%";
+      // progressBar.current.style.height = per + "%";
       rocket.current.style.top = per * 0.2 - 3.13 + "vh"; // 0.2 = progress(20vh) bar 3.13= rocketHeight/2;
     });
     // fix (키보드로 스크롤도 할 수 있음)
