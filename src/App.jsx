@@ -5,7 +5,7 @@ import Profile from "./Pages/Profile";
 import Skills from "./Pages/Skills";
 import Projects from "./Pages/Projects";
 import SideScroll from "./components/common/SideScroll";
-import bottomImg from "../src/img/bottom.png";
+import bottomImg from "../src/assets/img/bottom.png";
 function App() {
   return (
     <div className="App">

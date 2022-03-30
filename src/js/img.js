@@ -1,5 +1,5 @@
-import testImg from "../img/test.svg";
-import jinhoImg from "../img/jinho.svg";
+import testImg from "../assets/img/test.svg";
+import jinhoImg from "../assets/img/jinho.svg";
 export default class Img {
   constructor(ctx, stageWidth, stageHeight) {
     this.ctx = ctx;

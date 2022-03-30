@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./SideScroll.scss";
-import rocketImg from "../../img/rocket.svg";
+import rocketImg from "../../assets/img/rocket.svg";
 
 const SideScroll = () => {
   const progressBar = useRef(null);
