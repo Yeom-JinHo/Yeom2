@@ -1,13 +1,23 @@
 .sideScroll {
-  background-color: black;
-  opacity: 0.5;
+  &-ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__btn {
+      font-size: 2vh;
+      color: white;
+    }
+  }
   &__rocket-img {
     position: absolute;
-
-    right: 3vw;
-
+    left: 8vw;
     width: 2vw;
-
     transform: scaleY(-1);
+  }
+
+  .btn--active {
+    color: aqua;
   }
 }

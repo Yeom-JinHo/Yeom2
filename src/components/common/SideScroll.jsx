@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./SideScroll.scss";
 import rocketImg from "../../assets/img/rocket.svg";
 
 const SideScroll = () => {
-  const progressBar = useRef(null);
   const rocket = useRef(null);
+  const lists = ["메인", "프로필", "스킬", "프로젝트"];
+  const [nowPage, setNowPage] = useState("메인");
+
   useEffect(() => {
     window.addEventListener("scroll", (e) => {
       const scrollTop = document.documentElement.scrollTop;
@@ -13,8 +15,16 @@ const SideScroll = () => {
           ((document.body.scrollHeight / 3) * 4 - window.innerHeight)) *
           100
       );
-      // progressBar.current.style.height = per + "%";
-      rocket.current.style.top = per * 0.2 - 3.13 + "vh"; // 0.2 = progress(20vh) bar 3.13= rocketHeight/2;
+      if (per > 75) {
+        setNowPage("프로젝트");
+      } else if (per > 50) {
+        setNowPage("스킬");
+      } else if (per > 25) {
+        setNowPage("프로필");
+      } else {
+        setNowPage("메인");
+      }
+      rocket.current.style.top = per * 0.2 - 2 + "vh"; // 0.2 = progress(20vh) 1= rocketHeight/2;
     });
     // fix (키보드로 스크롤도 할 수 있음)
     window.addEventListener("mousewheel", (e) => {
@@ -26,6 +36,52 @@ const SideScroll = () => {
     });
   }, []);
 
+  const handleSlider = (e) => {
+    let target;
+    switch (e.target.innerText) {
+      case "메인":
+        target = document.querySelector(".canvas");
+        break;
+      case "프로필":
+        target = document.querySelector(".profile");
+        break;
+      case "스킬":
+        target = document.querySelector(".skills");
+        break;
+      case "프로젝트":
+        target = document.querySelector(".projects");
+        break;
+      default:
+        target = document.querySelector(".canvas");
+        break;
+    }
+    window.scrollTo({
+      top: target.offsetTop,
+      behavior: "smooth",
+    });
+  };
+  
+  // const setPageClassName = useMemo(
+  //   (value) => {
+  //     const prefix = `sideScroll-ul__btn`;
+  //     if (value === nowPage) {
+  //       console.log(prefix);
+  //       return prefix + " btn--active";
+  //     } else {
+  //       return prefix;
+  //     }
+  //   },
+  //   [nowPage]
+  // );
+
+  const setPageClassName = (value) => {
+    const prefix = `sideScroll-ul__btn`;
+    if (value === nowPage) {
+      return prefix + " btn--active";
+    } else {
+      return prefix;
+    }
+  };
   return (
     <div className="sideScroll">
       <img
@@ -34,7 +90,15 @@ const SideScroll = () => {
         alt="로켓이미지"
         ref={rocket}
       />
-      <div className="sideScroll__progress" ref={progressBar}></div>
+      <ul className="sideScroll-ul">
+        {lists.map((item, ind) => (
+          <li key={ind} className="sideScroll-ul__li">
+            <button className={setPageClassName(item)} onClick={handleSlider}>
+              {item}
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
