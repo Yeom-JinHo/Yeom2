@@ -1,2 +1,8 @@
-.skills {
+.skills-page {
+  .skills {
+    &-ul {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
 }

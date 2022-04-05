@@ -9,7 +9,7 @@ const Canvas = () => {
   }, []);
 
   return (
-    <div className="canvas">
+    <div className="canvas-page">
       <canvas ref={canvasRef} className="canvas"></canvas>;
     </div>
   );

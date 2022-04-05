@@ -1,17 +1,16 @@
 @mixin page {
   position: relative;
-  margin: 0 25vw 35vh 25vw;
+  margin: 35vh 25vw 35vh 25vw;
 
   width: 50vw;
   height: 70vh;
-
   background-color: wheat;
 }
 body {
   width: 100vw;
   height: 100vh;
 
-  .canvas {
+  .canvas-page {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,20 +21,20 @@ body {
     top: 40vh;
     right: 3vw;
 
-    width: 1vw;
+    width: 10vw;
     height: 20vh;
   }
 
-  .profile {
+  .profile-page {
     @include page;
     margin-top: 100vh;
   }
 
-  .skills {
+  .skills-page {
     @include page;
   }
 
-  .projects {
+  .projects-page {
     @include page;
     margin-bottom: 20vh;
   }
