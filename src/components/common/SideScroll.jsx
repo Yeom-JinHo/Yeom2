@@ -40,19 +40,19 @@ const SideScroll = () => {
     let target;
     switch (e.target.innerText) {
       case "메인":
-        target = document.querySelector(".canvas");
+        target = document.querySelector(".canvas-page");
         break;
       case "프로필":
-        target = document.querySelector(".profile");
+        target = document.querySelector(".profile-page");
         break;
       case "스킬":
-        target = document.querySelector(".skills");
+        target = document.querySelector(".skills-page");
         break;
       case "프로젝트":
-        target = document.querySelector(".projects");
+        target = document.querySelector(".projects-page");
         break;
       default:
-        target = document.querySelector(".canvas");
+        target = document.querySelector(".canvas-page");
         break;
     }
     window.scrollTo({
@@ -60,19 +60,6 @@ const SideScroll = () => {
       behavior: "smooth",
     });
   };
-  
-  // const setPageClassName = useMemo(
-  //   (value) => {
-  //     const prefix = `sideScroll-ul__btn`;
-  //     if (value === nowPage) {
-  //       console.log(prefix);
-  //       return prefix + " btn--active";
-  //     } else {
-  //       return prefix;
-  //     }
-  //   },
-  //   [nowPage]
-  // );
 
   const setPageClassName = (value) => {
     const prefix = `sideScroll-ul__btn`;

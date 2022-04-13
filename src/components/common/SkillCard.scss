@@ -1,0 +1,33 @@
+.skill-card {
+  display: flex;
+  flex-direction: row;
+  .card-container {
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      // margin: 15px;
+      // width: 100%;
+      height: 10vh;
+      width: 10vw;
+      // width: 200px;
+      // height: 300px;
+      backface-visibility: hidden;
+      visibility: visible;
+      transition: 1s ease-in-out;
+    }
+  }
+  .front {
+    position: absolute;
+  }
+  .back {
+    transform: rotateY(-180deg);
+  }
+  &:hover .front {
+    transform: rotateY(180deg);
+  }
+  &:hover .back {
+    transform: rotateY(0deg);
+  }
+}
