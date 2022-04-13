@@ -1,19 +1,38 @@
 @mixin page {
-  position: relative;
-  margin: 35vh 25vw 35vh 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 
-  width: 50vw;
-  height: 70vh;
-  background-color: wheat;
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50vw;
+    height: 50vh;
+
+    background-color: wheat;
+
+    border-radius: 5px;
+    z-index: 3;
+  }
 }
 body {
   width: 100vw;
   height: 100vh;
 
   .canvas-page {
-    position: fixed;
     top: 0;
     left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(0deg, #02080a, #0f2027, #203f4d);
   }
 
   .sideScroll {
@@ -27,16 +46,18 @@ body {
 
   .profile-page {
     @include page;
-    margin-top: 100vh;
+    background: linear-gradient(180deg, #02080a, #0f2027, #203f4d);
   }
 
   .skills-page {
     @include page;
+    background: linear-gradient(0deg, #02080a, #0f2027, #203f4d);
   }
 
   .projects-page {
     @include page;
-    margin-bottom: 20vh;
+    // margin-bottom: 20vh;
+    background: linear-gradient(180deg, #02080a, #0f2027, #203f4d);
   }
   .bottomImg {
     position: fixed;
@@ -44,11 +65,24 @@ body {
 
     width: 100vw;
     height: 20vh;
+
+    z-index: 4;
   }
 
   .empty {
     @include page;
     margin: 0;
     height: 1px;
+  }
+
+  .starBg {
+    position: fixed;
+
+    top: 0;
+
+    width: 100vw;
+    height: 200vh;
+
+    z-index: 2;
   }
 }
